@@ -17,7 +17,6 @@ RUN unzip /tmp/selfoss-*.zip -d /var/www/html && \
     ln -s /var/www/html/data/config.ini /var/www/html && \
     chown -R www-data:www-data /var/www/html
 
-# Extend maximum execution time, so /refresh does not time out
-COPY php.d/max-execution-time.ini /usr/local/etc/php/conf.d/
+COPY php.d/* /usr/local/etc/php/conf.d/
 
 VOLUME /var/www/html/data

@@ -1,5 +1,5 @@
 SELFOSS_VERSION=2.18
-TAG=$(SELFOSS_VERSION)-2
+TAG=$(SELFOSS_VERSION)-4
 DOCKER_IMAGE_NAME=spyseth/docker-selfoss
 
 build:
@@ -13,4 +13,5 @@ push:
 	docker push $(DOCKER_IMAGE_NAME):latest
 
 test:
+	docker run -it --rm -p 8000:80 $(DOCKER_IMAGE_NAME):$(TAG)
 	docker run -it --rm -p 8000:80 spyseth/docker-selfoss:latest
